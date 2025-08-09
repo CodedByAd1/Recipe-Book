@@ -1,0 +1,115 @@
+.data-management {
+  background-color: #fffdf5;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  box-shadow: var(--card-shadow);
+}
+
+.data-management h3 {
+  color: var(--primary-color);
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.data-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.data-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-speed);
+  flex: 1;
+  justify-content: center;
+}
+
+.export-btn {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.export-btn:hover {
+  background-color: var(--secondary-color);
+}
+
+.import-btn {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.import-btn:hover {
+  background-color: var(--secondary-color);
+}
+
+.clear-btn {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.clear-btn:hover {
+  background-color: #c0392b;
+}
+
+.confirm-dialog {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #fffcf2;
+  border-radius: 4px;
+  border-left: 4px solid var(--danger-color);
+}
+
+.confirm-dialog p {
+  margin: 0 0 1rem 0;
+  font-weight: 500;
+}
+
+.confirm-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.confirm-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-speed);
+}
+
+.yes-btn {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.yes-btn:hover {
+  background-color: #c0392b;
+}
+
+.no-btn {
+  background-color: var(--light-gray);
+  color: var(--text-color);
+}
+
+.no-btn:hover {
+  background-color: var(--medium-gray);
+}
+
+@media (max-width: 768px) {
+  .data-management {
+    padding: 1rem;
+  }
+  
+  .data-buttons {
+    flex-direction: column;
+  }
+} 

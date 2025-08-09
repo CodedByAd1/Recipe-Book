@@ -1,0 +1,303 @@
+.recipe-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.recipe-modal-content {
+  background-color: #fffdf5;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  position: relative;
+  animation: slideUp 0.3s ease-out;
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: var(--accent-color) #f1f1f1; /* For Firefox */
+}
+
+/* Custom scrollbar for Webkit browsers (Chrome, Safari, Edge) */
+.recipe-modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.recipe-modal-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 8px;
+}
+
+.recipe-modal-content::-webkit-scrollbar-thumb {
+  background-color: var(--accent-color);
+  border-radius: 8px;
+  border: 2px solid #f1f1f1;
+}
+
+.recipe-modal-content::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary-color);
+}
+
+/* Fix for scrollbar and border-radius */
+@supports(overflow: overlay) {
+  .recipe-modal-content {
+    overflow-y: overlay;
+  }
+}
+
+/* For browsers that don't support overlay */
+.recipe-modal-content::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 8px;
+  background-color: #fffdf5;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.recipe-modal-header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1.5rem;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-modal-header h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  max-width: 70%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.recipe-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color var(--transition-speed);
+}
+
+.edit-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.delete-btn:hover {
+  background-color: var(--danger-color);
+}
+
+.close-btn:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.scroll-top-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  opacity: 0.8;
+  transition: opacity 0.3s, transform 0.3s;
+  animation: fadeIn 0.3s;
+}
+
+.scroll-top-btn:hover {
+  opacity: 1;
+  transform: translateY(-3px);
+}
+
+.recipe-modal-image {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+
+.recipe-modal-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Dish Type Badge in Modal */
+.recipe-modal-image .dish-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Updated badge colors */
+.recipe-modal-image .dish-badge.vegetarian {
+  background-color: #4caf50;
+}
+
+.recipe-modal-image .dish-badge.non-vegetarian {
+  background-color: #e74c3c;
+}
+
+.recipe-modal-image .dish-badge.egg-based {
+  background-color: #f39c12;
+}
+
+.recipe-modal-details {
+  padding: 1.5rem;
+}
+
+.recipe-section {
+  margin-bottom: 2rem;
+  background-color: #fffef9;
+  border-radius: 6px;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.recipe-section h3 {
+  color: var(--secondary-color);
+  margin-top: 0;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--light-gray);
+  padding-bottom: 0.5rem;
+  font-size: 1.3rem;
+  letter-spacing: 0.5px;
+}
+
+.ingredients-list {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+.ingredients-list li {
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+  padding-left: 0.5rem;
+  position: relative;
+}
+
+.ingredients-list li::marker {
+  color: var(--accent-color);
+}
+
+.cooking-method {
+  white-space: pre-line;
+  line-height: 1.8;
+  color: var(--text-color);
+  font-size: 1rem;
+  text-align: justify;
+  padding: 0 0.5rem;
+}
+
+.recipe-description {
+  line-height: 1.8;
+  color: var(--text-color);
+  font-size: 1.05rem;
+  text-align: justify;
+  padding: 0 0.5rem;
+  font-style: italic;
+  border-left: 3px solid var(--accent-color);
+  padding-left: 1rem;
+  margin: 0.5rem 0;
+  background-color: #fffcf2;
+  border-radius: 0 4px 4px 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .recipe-modal-content {
+    max-height: 95vh;
+  }
+  
+  .recipe-modal-header {
+    padding: 1rem;
+  }
+  
+  .recipe-modal-header h2 {
+    font-size: 1.5rem;
+    max-width: 60%;
+  }
+  
+  .recipe-modal-image {
+    height: 200px;
+  }
+  
+  .recipe-modal-details {
+    padding: 1rem;
+  }
+  
+  .scroll-top-btn {
+    width: 36px;
+    height: 36px;
+    bottom: 15px;
+    right: 15px;
+  }
+} 

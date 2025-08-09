@@ -1,0 +1,212 @@
+.recipe-card {
+  background-color: #fffdf5;
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.recipe-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.recipe-card-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 70%;
+}
+
+.recipe-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem;
+  border-radius: 4px;
+  transition: background-color var(--transition-speed);
+}
+
+.edit-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.delete-btn:hover {
+  background-color: var(--danger-color);
+}
+
+.recipe-image {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  position: relative;
+}
+
+.recipe-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.recipe-card:hover .recipe-image img {
+  transform: scale(1.05);
+}
+
+/* Dish Type Badge */
+.dish-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.dish-badge.vegetarian {
+  background-color: #4caf50; /* Green for vegetarian */
+}
+
+.dish-badge.non-vegetarian {
+  background-color: #e74c3c; /* Red for non-vegetarian */
+}
+
+.dish-badge.egg-based {
+  background-color: #f39c12; /* Orange for egg-based */
+}
+
+.recipe-card-content {
+  padding: 1rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.recipe-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+}
+
+.recipe-description {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-color);
+  opacity: 0.8;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.recipe-ingredients {
+  padding: 1rem;
+}
+
+.recipe-ingredients h4 {
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+
+.recipe-ingredients ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.recipe-ingredients li {
+  margin-bottom: 0.3rem;
+}
+
+.recipe-expand {
+  padding: 0 1rem 1rem;
+  text-align: center;
+}
+
+.expand-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--light-gray);
+  color: var(--text-color);
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  transition: background-color var(--transition-speed);
+}
+
+.expand-btn:hover {
+  background-color: var(--medium-gray);
+}
+
+.recipe-method {
+  padding: 0 1rem 1rem;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.recipe-method h4 {
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+
+.recipe-method p {
+  white-space: pre-line;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .recipe-image {
+    height: 150px;
+  }
+  
+  .recipe-card-content {
+    padding: 0.8rem;
+  }
+  
+  .recipe-title {
+    font-size: 1.1rem;
+  }
+} 
