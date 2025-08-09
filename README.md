@@ -73,7 +73,7 @@ Use the search box to filter recipes by name or ingredients.
 To create a production build:
 
 ```
-npm run dev
+npm run build
 ```
 
 The build files will be in the `dist` directory.
